@@ -1,0 +1,275 @@
+/* Custom App Styling for Orbinx Ops Dashboard */
+
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #121216;
+  --bg-card: rgba(30, 30, 38, 0.4);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --accent-color: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --success-color: #10b981;
+  --failed-color: #ef4444;
+  --progress-color: #3b82f6;
+  --queued-color: #f59e0b;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pulse-logo {
+  width: 16px;
+  height: 16px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.trigger-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+.trigger-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.35);
+}
+
+.trigger-btn:active {
+  transform: translateY(1px);
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.card-value {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.status-good {
+  color: var(--success-color);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.deployment-list-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.deployment-table-wrapper {
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.deployment-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.deployment-table th,
+.deployment-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.deployment-table th {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.deployment-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.deployment-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.mono-text {
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.label-text {
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+.status-success .dot {
+  background-color: var(--success-color);
+  box-shadow: 0 0 8px var(--success-color);
+}
+
+.status-failed {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--failed-color);
+}
+.status-failed .dot {
+  background-color: var(--failed-color);
+  box-shadow: 0 0 8px var(--failed-color);
+}
+
+.status-progress {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--progress-color);
+}
+.status-progress .dot {
+  background-color: var(--progress-color);
+  box-shadow: 0 0 8px var(--progress-color);
+  animation: blink 1.5s infinite;
+}
+
+.status-queued {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--queued-color);
+}
+.status-queued .dot {
+  background-color: var(--queued-color);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.dashboard-footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
