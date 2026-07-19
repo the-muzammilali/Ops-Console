@@ -5,7 +5,7 @@ import type { Deployment, DeploymentStatus } from "../types/deployment";
  */
 export function getStatusLabel(status: DeploymentStatus): string {
   switch (status) {
-    case "success":
+    case "finished":
       return "Success";
     case "failed":
       return "Failed";
@@ -21,7 +21,7 @@ export function getStatusLabel(status: DeploymentStatus): string {
  * Formats the deployment's start time into a readable string.
  */
 export function formatDeploymentTime(deployment: Deployment): string {
-  return new Date(deployment.started_at).toLocaleString("en-US", {
+  return new Date(deployment.startedAt).toLocaleString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
